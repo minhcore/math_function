@@ -4,7 +4,9 @@ LDFLAGS =
 
 TARGET = build/app.exe
 
-SRC = src/main.c
+SRC = \
+	src/main.c \
+	src/matrix.c
 
 all: $(TARGET)
 
@@ -15,14 +17,15 @@ run: $(TARGET)
 	./$(TARGET)
 
 format:
-	clang-format -i src/*.c include/*.h
+	clang-format -i src/*.c src/*.h
 
 cppcheck:
 	cppcheck --enable=all --inconclusive --quiet \
 	--suppress=missingIncludeSystem \
 	--suppress=checkersReport \
 	--suppress=unmatchedSuppression \
-	src include
+	--suppress=unusedFunction \
+	src 
 
 
 clean:
