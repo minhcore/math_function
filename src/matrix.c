@@ -40,7 +40,6 @@ matrix_status_e matrix_mul(const struct matrix *a, const struct matrix *b, struc
         return MATRIX_IVALID;
     }
 
-    
     for (uint8_t i = 0; i < a->rows; i++) {
         for (uint8_t j = 0; j < b->cols; j++) {
             float sum = 0;
