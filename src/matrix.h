@@ -22,4 +22,15 @@ void matrix_set(struct matrix *mat, uint8_t r, uint8_t c, mat_data_t value);
 void matrix_print(const struct matrix *mat);
 matrix_status_e matrix_mul(const struct matrix *a, const struct matrix *b, struct matrix *result);
 
+/* TODO:
+phase 1:
+    translation function
+    rotate function
+    scale function
+phase 2:
+    optimize memory by using fixed point math
+phase 3:
+    matrix stack
+*/
+
 #endif
