@@ -15,8 +15,7 @@ void matrix_init(struct matrix *mat, uint8_t r, uint8_t c, mat_data_t *buffer)
 
 void matrix_set(struct matrix *mat, uint8_t r, uint8_t c, mat_data_t value)
 {
-    // TODO: the condition should be >= 
-    if ((r > mat->rows) || (c > mat->cols)) {
+    if ((r >= mat->rows) || (c >= mat->cols)) {
         return;
     }
     uint8_t index = r * mat->cols + c;
@@ -36,7 +35,6 @@ void matrix_print(const struct matrix *mat)
 
 matrix_status_e matrix_mul(const struct matrix *a, const struct matrix *b, struct matrix *result)
 {
-    UNUSED(result);
     
     if (a->cols != b->rows) {
         return MATRIX_IVALID;
