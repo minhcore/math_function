@@ -2,6 +2,7 @@
 #define MATRIX_H
 
 #include <stdint.h>
+#include <math.h>
 
 typedef float mat_data_t;
 
@@ -13,24 +14,16 @@ struct matrix
 };
 
 typedef enum {
-    MATRIX_IVALID,
+    MATRIX_INVALID,
     MATRIX_OK,
+    MATRIX_SINGULAR,
 } matrix_status_e;
 
 void matrix_init(struct matrix *mat, uint8_t r, uint8_t c, mat_data_t *buffer);
 void matrix_set(struct matrix *mat, uint8_t r, uint8_t c, mat_data_t value);
 void matrix_print(const struct matrix *mat);
 matrix_status_e matrix_mul(const struct matrix *a, const struct matrix *b, struct matrix *result);
-
-/* TODO:
-phase 1:
-    translation function
-    rotate function
-    scale function
-phase 2:
-    optimize memory by using fixed point math
-phase 3:
-    matrix stack
-*/
+matrix_status_e matrix_copy(const struct matrix *src, struct matrix *dest);
+matrix_status_e matrix_solve_gauss(const struct matrix *a, const struct matrix *b, struct matrix *x);
 
 #endif
