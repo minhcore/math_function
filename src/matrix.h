@@ -24,6 +24,7 @@ void matrix_set(struct matrix *mat, uint8_t r, uint8_t c, mat_data_t value);
 void matrix_print(const struct matrix *mat);
 matrix_status_e matrix_mul(const struct matrix *a, const struct matrix *b, struct matrix *result);
 matrix_status_e matrix_copy(const struct matrix *src, struct matrix *dest);
-matrix_status_e matrix_solve_gauss(const struct matrix *a, const struct matrix *b, struct matrix *x);
+
+//TODO: LED MATRIX
 
 #endif

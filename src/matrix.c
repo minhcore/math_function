@@ -80,14 +80,4 @@ matrix_status_e matrix_copy(const struct matrix *src, struct matrix *dest)
     return MATRIX_OK;
 }
 
-matrix_status_e matrix_solve_gauss(const struct matrix *a, const struct matrix *b, struct matrix *x)
-{
-    if (a->rows != a->cols || a->rows != b->rows) 
-    {
-        return MATRIX_INVALID;
-    }
-    uint8_t n = a->rows;
-    UNUSED(x);
-    UNUSED(n);
-    return 0;
-}
+
